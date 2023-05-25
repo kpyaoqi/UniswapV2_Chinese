@@ -39,7 +39,7 @@ contract UniswapV2Migrator is IUniswapV2Migrator {
             deadline
         );
         if (amountTokenV1 > amountTokenV2) {
-            //做一个好的区块链公民，将津贴重置为0
+            //授权额度重置为0
             TransferHelper.safeApprove(token, address(router), 0); 
             TransferHelper.safeTransfer(token, msg.sender, amountTokenV1 - amountTokenV2);
         } else if (amountETHV1 > amountETHV2) {
